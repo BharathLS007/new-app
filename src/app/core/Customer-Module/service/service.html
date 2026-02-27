@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="service-container">
+    <div class="header">
+      <i class="fa-solid fa-arrow-left" routerLink="/HomeAfterLogin" routerLinkActive="active-link"></i>
+      <span class="title" style="border-bottom: 2px solid rgb(168, 168, 166);">Electrician Service</span>
+      <i class="fa-solid fa-phone"></i>
+    </div>
+
+    <div class="work-image">
+      <span class="work">Add what work you need</span>
+    </div>
+
+
+    <div class="container-2">
+      <!-- Work Details -->
+      <div class="card">
+        <div class="work-details-header" style="position: relative;">
+          <span class="section-title">Work Details</span>
+          <img [src]="backImg" alt="Work header">
+        </div>
+
+        <div *ngFor="let work of works; let i = index" class="work-item">
+          <p class="controller" style="width: 200px;"><span class="name-qty" style="text-align: left;">{{ work.name }}
+              <span class="qty" style="text-align: right;">Qty: {{ work.qty }}</span></span></p>
+
+          <div class="qty-controls">
+            <button (click)="decrementQty(i)">-</button>
+            <span>{{ work.qty }}</span>
+            <button (click)="incrementQty(i)">+</button>
+          </div>
+        </div>
+
+        <!-- Add More Work -->
+        <div class="add-more" (click)="openPopup()">
+          <span style="font-size: 20px; font-weight: 800;" >+</span> Add More Work
+        </div>
+
+      </div>
+    </div>
+    <div class="section-title">
+      <!-- Additional details -->
+      <h3 class="section-title" style="margin: 20px 20px 0 0 ;">Any additional details?(optional)</h3>
+      <div style="display: flex; align-items: center;">
+        <input type="text" placeholder="Write Here ..." class="text-area">
+        <button type="camera" class="add-photos-btn">
+          <div class="photo">
+            <i class="fa-solid fa-camera" style="font-size: 18px; margin-right: 6px;"></i>
+            <Span>Add Photos</Span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <!-- Schedule -->
+    <div class="section-title" style="display: flex; align-items: center;">
+      <span
+        style="display: inline-block; width: 6px; height: 28px; background: linear-gradient(180deg, #FFB300 0%, #FF9800 100%); border-radius: 4px; margin-right: 10px;"></span>
+      <span class="sub-title2" style="font-weight: 600; color: #000;">Schedule </span>
+        <span style="flex:1; height:1px; background:#e0e0e0; display:inline-block; margin-left:8px; vertical-align:middle;"></span>
+    </div>
+    <div class="card-1">
+      <div class="custom-datepicker-pill" (click)="openDateTimePopup()">
+        <div class="content-section">
+          <mat-icon class="calendar-blue-icon" style="margin-right: 10px;">calendar_today</mat-icon>
+        </div>
+        <div class="action-section">
+          <span class="label-text">
+            {{ selectedDate ? (selectedDate | date:'mediumDate') : 'Preferred Date & Time' }}
+            {{ selectedTimeSlot ? ' | ' + selectedTimeSlot.time : '' }}
+          </span>
+          <span class="select-text">| Select</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Combined Date & Time Slot Popup -->
+    <div class="popup-overlay" *ngIf="showDateTimePopup">
+      <div class="popup date-time-popup">
+        <h4 class="popup-title">Choose Date</h4>
+        
+    <mat-card class="custom-calendar">
+
+      <mat-calendar
+        class="calendar-ui"
+        [(selected)]="tempSelectedDate"
+        [dateClass]="dateClass">
+      </mat-calendar>
+
+    </mat-card>
+        <!-- Time Slot Options -->
+        <div class="time-slot-list">
+          <Span style="font-weight: 600;">Choose Time Slot</Span>
+          <label class="time-slot-option" *ngFor="let slot of timeSlots"
+            [class.selected]="tempSelectedTimeSlot === slot">
+            <input type="radio" name="timeSlot" [value]="slot" [(ngModel)]="tempSelectedTimeSlot"
+              class="visually-hidden">             
+            <span class="slot-icon">          
+              <ng-container [ngSwitch]="slot.label">
+                <span *ngSwitchCase="'Morning'">☀️</span>
+                <span *ngSwitchCase="'Afternoon'">🌅</span>
+                <span *ngSwitchCase="'Evening'">🌙</span>
+                <span *ngSwitchCase="'Night'">🌑</span>
+              </ng-container>
+            </span>
+            <span class="slot-label">{{ slot.label }}</span>
+            <span class="slot-time">{{ slot.time }}</span>
+            <span class="custom-radio"><span class="dot"></span></span>
+          </label>
+        </div>
+        <button class="confirm-btn" (click)="confirmDateTime()">CONFIRM</button>
+      </div>
+    </div>
+
+    <div class="section-title" style="display: flex; align-items: center;">
+      <span
+        style="display: inline-block; width: 6px; height: 28px; background: linear-gradient(180deg, #FFB300 0%, #FF9800 100%); border-radius: 4px; margin-right: 10px;"></span>
+     <span  style="font-weight: 600; color: #000;"> Address</span><span style="flex:1; height:1px; background:#e0e0e0; display:inline-block; margin-left:8px; vertical-align:middle;"></span>
+    </div>
+    <div class="card">
+      <div class="custom-datepicker-pill" routerLink="/address" routerLinkActive="active-link">
+        <!--------- <div class="vertical-divider"></div>-->
+        <div class="action-section">
+          <span class="label-text"><i class="fa-solid fa-location-dot"></i>1st,West street</span>
+          <span class="select-text">| <span style="border-bottom: 1px solid orange;">Select Address</span><i class="fa-solid fa-angle-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button class="request-btn" routerLink="/booking" routerLinkActive="active-link">REQUEST ELECTRICIAN</button>
+</div>
+
+
+<!-- Popup -->
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup">
+    <h4>Add Work</h4>
+    <!--------   <select [(ngModel)]="selectedWorkType" style="margin-bottom: 8px; width: 100%;">
+      <option value="">Select Work Type</option>
+      <option *ngFor="let type of workTypes" [value]="type">{{ type }}</option>
+    </select>-->
+    <input type="text" [(ngModel)]="newWork" placeholder="Example: Install fan">
+    <div class="popup-buttons">
+      <button (click)="closePopup()">Cancel</button>
+      <button (click)="addWork()">Add</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+.select-address-container{
+    padding:16px;
+    background:#f6f7fb;
+    min-height:100vh;
+}
+
+/* Header */
+.header{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    font-size:18px;
+    font-weight:600;
+    margin-bottom: 5%;
+    border-bottom: 1px solid #ddd;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+    border-bottom: 1px solid #ff8d00;
+}
+
+.title-1{
+    display: flex;
+    align-items: center;
+    margin-left: 90px;
+    border-bottom: 1px solid #ff8d00;
+}
+.label{
+    width:80%;
+}
+/* Address List */
+.address-list{
+    margin-top:15px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.address-card{
+    background:white;
+    padding:14px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    border:2px solid transparent;
+}
+
+.address-card.selected{
+   background-color: white;
+}
+
+.address-actions{
+    display:flex;
+    gap:10px;
+}
+
+.selectedAddress{
+    font-size: 20px;
+}
+
+.address-info{
+    display:flex;
+    flex-direction:row;
+    gap: 20px;
+}
+
+.address-details{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.address-text{
+    font-size:13px;
+    color:#666;
+}
+.text-2{
+    width:140px;
+    margin-top: 10px;
+}
+/* Empty */
+.empty-address{
+    text-align:center;
+    color:#999;
+    padding:20px;
+}
+
+/* Add Button */
+.add-address-btn{
+    margin-top:15px;
+    width:100%;
+    padding:11px;
+    border:1.5px dashed #2196f3;
+    background:#e3f2fd;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Modal */
+.address-form-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    display:flex;
+    align-items:center;
+}
+
+.address-form-card{
+    width:100%;
+    background:white;
+    border-radius:18px 18px 0 0;
+    padding:16px;
+    max-width: 340px;
+    margin-left: 20px;
+}
+
+.address-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.address-form input,
+.address-form select{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+.city-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.submit-btn{
+    background: linear-gradient(90deg, #FF8A00 0%, #FF6A00 100%);
+   color: #ffffff;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.r-btn{
+    width: 20px;
+    height: 20px;
+    border: 2px solid #bdbdbd;
+    border-radius: 50%;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    transition: border 0.2s;
+    margin-top: 10px;
+}

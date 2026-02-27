@@ -1,0 +1,71 @@
+:host{
+    --primary-color: #087cc9;
+    --secondary-color: #2ecc71;
+    --font-color: #333333;
+    --background-color: #f5f5f5;
+    --line-color: #333333;
+}
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    background-color: var(--background-color);
+    position: fixed;
+    top: 1;
+    bottom: 0;
+}
+
+.navbar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+}
+.nav-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px 20px 25px 15px;
+    gap: 10px;
+    color: var(--font-color);
+}
+.bottom-nav{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    background-color: var(--background-color);
+}/* default (inactive) */
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--font-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* icon inherits color */
+.nav-btn i {
+    color: inherit;
+}
+.label{
+    font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* ACTIVE STATE */
+.nav-btn.active {
+    color: var(--primary-color); /* blue */
+}
+
+/* smooth transition */
+.nav-btn,
+.nav-btn i {
+    transition: color 0.2s ease;
+}

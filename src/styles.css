@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+button:focus, 
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.mat-mdc-button:focus, 
+.mat-mdc-raised-button:focus {
+  outline: none !important;
+}

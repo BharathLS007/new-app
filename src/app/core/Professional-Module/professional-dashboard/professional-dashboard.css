@@ -1,0 +1,512 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+:host{
+ --text-color: #555;
+ --banner-btn-color: #ff8000;
+}
+.hero{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.Title{
+    font-size: 26px;
+    font-weight: 700;
+    font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.Subtitle{
+    font-size: 18px;
+    color: var(--text-color);
+    font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container{
+  margin: 20px;
+}
+
+/* Carousel CSS */
+.carousel-container {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    background: #fff;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+
+.services-carousel .carousel-card.service-card-ui {
+  min-width: 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background: #f9fbfd;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px 0 rgba(60,60,60,0.07);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #e3eafc;
+  margin-bottom: 15px;
+}
+
+.service-card-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 10px;
+}
+
+.service-icon-ui {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  margin-right: 8px;
+  background: linear-gradient(135deg, #2196f3 80%, #1976d2 100%);
+}
+.service-icon-ui.electrician {
+  background: linear-gradient(135deg, #ffb300 80%, #ff9800 100%);
+}
+
+.service-info-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+.service-title-ui {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2px;
+  font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.service-divider {
+  width: 90%;
+  height: 2px;
+  background: #e3eafc;
+  margin: 2px 0 6px 0;
+  border-radius: 2px;
+}
+.service-book-ui {
+  background: none;
+  color: #1976d2;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 500;
+  width: auto;
+  box-shadow: none;
+  margin-top: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+    display: block;;
+}
+
+.carousel-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    transform: translateX(-90%);
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-text h2 {
+    font-size:24px;
+    margin: 0;
+}
+
+.carousel-text p {
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+
+.essmed {
+    font-size: 18px;
+    color: #e62a37;
+}
+
+.apply{
+  display: flex;
+  margin-left: 200px;
+}
+.banner-button{
+  background-color: var(--banner-btn-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Dots */
+.dots {
+    text-align: center;
+    bottom: 12px;
+    width: 100%;
+}
+
+.dots span {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #939796;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dots span.active {
+    background-color: #1307ff;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 40px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  cursor: grab;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.carousel-card {
+  min-width: 160px;
+  max-width: 160px;
+  margin-right: 12px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.carousel-card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.book-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.nav-btn.left {
+  left: 6px;
+}
+
+.nav-btn.right {
+  right: 6px;
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.section-header{
+  display: flex;
+  justify-content: space-between;
+}
+.heading{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.fa-greater-than{
+  font-size: 12px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.services-cards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(60,60,60,0.07);
+  display: flex;
+  align-items: center;
+  padding: 16px 18px 16px 14px;
+  min-width: 0;
+  flex: 1 1 0;
+  gap: 14px;
+}
+
+.service-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  margin-right: 2px;
+  padding: 6px;
+}
+.service-icon.plumber {
+  background: linear-gradient(135deg, #2196f3 80%, #1976d2 100%);
+}
+.service-icon.electrician {
+  background: linear-gradient(135deg, #ffb300 80%, #ff9800 100%);
+}
+.service-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+}
+.service-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.service-book {
+  background: #f5faff;
+  color: #1976d2;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 0;
+  font-size: 15px;
+  font-weight: 500;
+  width: 140px;
+  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.06);
+  margin-top: 2px;
+  cursor: pointer;
+  border-bottom: 2px solid #e3eafc;
+}
+
+
+.bookings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.bookings-title {
+  font-size: 17px;
+  font-weight: 600;
+  font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.bookings-view {
+  color: #1976d2;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.booking-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(60,60,60,0.07);
+  display: flex;
+  align-items: center;
+  padding: 14px 16px 14px 12px;
+  min-width: 0;
+  gap: 12px;
+  font-family: SF Pro Text, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.booking-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  margin-right: 2px;
+}
+.booking-icon.plumber {
+  background: linear-gradient(135deg, #607d8b 80%, #455a64 100%);
+}
+.booking-icon.electrician {
+  background: linear-gradient(135deg, #ffb300 80%, #ff9800 100%);
+}
+.booking-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.booking-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 2px;
+}
+.booking-status {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+.booking-date {
+  color: #1976d2;
+  font-weight: 500;
+  margin-left: 2px;
+}
+.booking-arrow {
+  color: #bbb;
+  font-size: 18px;
+  margin-left: 8px;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider - the moving part */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px; /* Make it round */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%; /* Make it a circle */
+}
+
+/* Change background color when checked */
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* Move the slider when checked */
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.submit{
+  padding: 5px;
+  background-color: orangered;
+  color: white;
+  border-radius: 10px;
+  width: 100px;
+  border: none  ;
+  height: 35px;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .carousel-wrapper {
+    padding: 10px 30px;
+  }
+
+  .carousel-card {
+    min-width: 140px;
+  }
+}

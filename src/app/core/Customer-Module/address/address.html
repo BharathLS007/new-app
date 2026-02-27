@@ -1,0 +1,114 @@
+<div class="select-address-container">
+
+  <!-- Header -->
+  <div class="header">
+    <i class="fa-solid fa-arrow-left" routerLink="/service" routerLinkActive="active-link"></i>
+    <span class="title">Select Address</span>
+  </div>
+
+  <!-- Saved Address -->
+  <div class="section-title" *ngIf="addresses.length < 0">Saved Addresses</div>
+
+  <div class="address-list">
+
+    <!-- Empty State -->
+    <div *ngIf="addresses.length === 0" class="empty-address">
+      No addresses added yet
+    </div>
+    <!--------Static data
+  <div class="address-card">
+      <div class="address-info">
+
+        <span class="address-type">🏠</span>
+
+        <div class="address-details">
+          <div class="address-label">Work</div>
+
+          <div class="address-text">
+            1/52, Anna nagar<br>
+            Chennai - 600040
+          </div>
+        </div>
+      </div>
+      <div class="address-actions">
+        
+      </div>
+    </div>-->
+
+
+
+    <!-------end of testing static data-->
+    <div class="address-card" *ngFor="let address of addresses; let i = index" [class.selected]="selectedIndex === i">
+      <div class="address-info">
+        <span class="address-type">🏠</span>
+
+        <div class="address-details">
+          <div class="address-label">{{ address.label }}</div>
+
+          <div class="address-text">
+            {{ address.house }}, {{ address.area }}<br>
+            {{ address.city }} - {{ address.pincode }}
+          </div>
+        </div>
+      </div>
+      <div class="address-actions">
+        <input type="radio" name="selectedAddress" [checked]="selectedIndex === i" (change)="selectedIndex = i" class="r-btn" />
+      </div>
+    </div>
+
+  </div>
+  <button class="add-address-btn" (click)="showAddressForm = true">
+    + Add New Address
+  </button>
+  <div class="address-form-modal" *ngIf="showAddressForm">
+
+    <div class="address-form-card">
+
+      <div class="header">
+        <i class="fa-solid fa-arrow-left" (click)="showAddressForm = false"></i>
+        <span class="title-1">Add New Address</span>
+      </div>
+
+      <form #addressForm="ngForm" (ngSubmit)="submitAddress()" class="address-form">
+
+        <label>Address Type</label>
+        <select [(ngModel)]="newAddress.label" name="label" required class="label">
+          <option value="Home">Home</option>
+          <option value="Work">Work</option>
+          <option value="Parents">Parents</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>House / Flat No.</label>
+        <input type="text" [(ngModel)]="newAddress.house" name="house" required placeholder="Home address">
+
+        <label>Area / Locality</label>
+        <input type="text" [(ngModel)]="newAddress.area" name="area" required placeholder="Area">
+
+        <label>Landmark (Optional)</label>
+        <input type="text" [(ngModel)]="newAddress.landmark" name="landmark" placeholder="Landmark (Optional)">
+
+        <div class="city-row">
+          <div>
+            <label>City</label>
+            <input type="text" [(ngModel)]="newAddress.city" name="city" required class="text-2" placeholder="City">
+          </div>
+
+          <div>
+            <label>Pincode</label>
+            <input type="text" maxlength="6" pattern="[0-9]{6}" [(ngModel)]="newAddress.pincode" name="pincode"
+              class="text-2" placeholder="Pincode" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="!addressForm.valid">
+          Add Address
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

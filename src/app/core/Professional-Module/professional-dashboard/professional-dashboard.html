@@ -1,0 +1,89 @@
+
+  <app-professional-header></app-professional-header> 
+<div class="container">
+   <div class="hero">
+      <span class="Title">Hi, Mike 👷</span>
+      <span class="Subtitle">Your Service Dashboard</span>
+   </div>
+   <div class="banner">
+      <div class="carousel-container" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+         (touchend)="onTouchEnd($event)" (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)"
+         (mouseup)="onMouseUp($event)" (mouseleave)="onMouseLeave($event)">
+         <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+            <div class="carousel-slide" *ngFor="let banner of banners; let i = index">
+               <img [src]="banner.img" [alt]="banner.title">
+               <div class="carousel-text">
+                  <h2>{{banner.title}}</h2>
+                  <p>{{banner.subtitle}}</p>
+                  <div class="apply">
+                     <button class="banner-button">{{banner.button}}</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Dots (kept for navigation feedback) -->
+      <div class="dots">
+         <span *ngFor="let banner of banners; let i = index" [class.active]="i === currentIndex"
+            (click)="setCurrentIndex(i)"></span>
+      </div>
+   </div>
+ 
+   <div class="bookings-header">
+      <span class="bookings-title">My Services</span>
+      <!----<span class="bookings-view">View All <i class="fa-solid fa-chevron-right"></i></span>-->
+   </div>
+   <div class="bookings-list">
+      <div class="booking-card">
+         <div class="booking-icon plumber"><i class="fa-solid fa-wrench"></i></div>
+         <div class="booking-info">
+            <div class="booking-title">Pipe Leak Repair</div>
+            <div class="booking-status">Active </div>
+         </div>
+         <label class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+         </label>
+
+         <div class="booking-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      </div>
+      <div class="booking-card">
+         <div class="booking-icon electrician"><i class="fa-solid fa-lightbulb"></i></div>
+         <div class="booking-info">
+            <div class="booking-title">Electrical Fix</div>
+            <div class="booking-status">Active </div>
+         </div>
+          <label class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+         </label>
+         <div class="booking-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      </div>
+   </div>
+   <div class="bookings-header">
+      <span class="bookings-title">Recent Jobs</span>
+      <!----<span class="bookings-view">View All <i class="fa-solid fa-chevron-right"></i></span>-->
+   </div>
+   <div class="bookings-list">
+      <div class="booking-card">
+         <div class="booking-icon plumbers">👷</div>
+         <div class="booking-info">
+            <div class="booking-title">Pipe Leak Repair</div>
+            <div class="booking-status">Downtown - 2pm <span class="booking-date">| 2hrs ago</span></div>
+         </div>
+         <div class="booking-arrow"><button class="submit">Assigned </button></div>
+      </div>
+      <div class="booking-card">
+         <div class="booking-icon electricians">👷‍♀️</div>
+         <div class="booking-info">
+            <div class="booking-title">Electrical Fix</div>
+            <div class="booking-status">DownTown - 2pm <span class="booking-date">| 3hrs ago</span></div>
+         </div>
+         <div class="booking-arrow"><button class="submit">Accept Job</button></div>
+      </div>
+   </div>
+
+</div>
+
+
+      <app-navbar> </app-navbar>
